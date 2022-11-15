@@ -52,8 +52,8 @@ const Dropdown = ({ options, isMulti }) => {
             {isMulti &&
             <div className="flex justify-right pb-05" onClick={handleMultiAllClick}>
                 {(selected.length === options.length) ?
-                    <i className="flex fas fa-trash multi-all"><div className="pl-03">deselect all</div></i>
-                    :<i className="flex fas fa-check multi-all"><div className="pl-03">select all</div></i>
+                    <i className="flex gray fas fa-trash multi-all"><div className="pl-03">deselect all</div></i>
+                    :<i className="flex gray fas fa-check multi-all"><div className="pl-03">select all</div></i>
                 }
             </div>
             }

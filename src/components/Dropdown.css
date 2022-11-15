@@ -18,7 +18,7 @@
 
 .dropdown-menu {
     width: 100%;
-    border: 1px solid #ccc;
+    border-top: 1px solid #ccc;
 }
 
 .dropdown-menu-item {
