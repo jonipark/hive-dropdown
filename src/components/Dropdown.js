@@ -2,12 +2,6 @@ import React from 'react';
 import './Dropdown.css';
 import '../App.css';
 
-// check dropdown is clicked
-// if clicked, open dropdown
-// if clicked outside, close dropdown
-
-
-
 const Dropdown = ({ options, isMulti }) => {
     const [open, setOpen] = React.useState(false);
     const [showOptions, setShowOptions] = React.useState(false);
@@ -45,35 +39,45 @@ const Dropdown = ({ options, isMulti }) => {
         }
     }
 
-    // use effect to check if icon is clicked
-    // if clicked, open dropdown and icon changes
-    //TODO: if clicked outside, close dropdown and icon changes
-    // function handleOutsideClick() {
-    //     setOpen(!open)
-    //     setShowOptions(!showOptions)
-    // }
+    function handleMultiAllClick() {
+        if (selected.length === options.length) {
+            setSelected([])
+        } else {
+            setSelected(options)
+        }
+    }
 
     return (
-        <div className="dropdown-container">
-            <div className="dropdown-input flex column">
-                <div className="flex spacebtw" onClick={handleDropdownClick}>
-                    <div className="dropdown-placeholder">{getDisplay()}</div>
-                    <div className="dropdown-tool" >
-                        <i className={open? 'fas fa-chevron-up gray' : 'fas fa-chevron-down gray'}></i>
-                    </div> 
-                </div>
+        <div>
+            {isMulti &&
+            <div className="flex justify-right pb-05" onClick={handleMultiAllClick}>
+                {(selected.length === options.length) ?
+                    <i className="flex fas fa-trash multi-all"><div className="pl-03">deselect all</div></i>
+                    :<i className="flex fas fa-check multi-all"><div className="pl-03">select all</div></i>
+                }
+            </div>
+            }
+            <div className="dropdown-container">
+                <div className="dropdown-input flex column">
+                    <div className="flex spacebtw" onClick={handleDropdownClick}>
+                        <div className="dropdown-placeholder">{getDisplay()}</div>
+                        <div className="dropdown-tool flex icon-container" >
+                            <i className={open? 'fas fa-chevron-up gray' : 'fas fa-chevron-down gray'}></i>
+                        </div> 
+                    </div>
 
-                {showOptions &&
-                <div className="dropdown-menu">
-                    {options.map((option) => (
-                        <div className={ (selected.includes(option))?
-                            "dropdown-menu-item flex column selected"
-                            : "dropdown-menu-item flex column"}
-                            onClick={() => handleSelected(option)}>
-                            {option.value}
-                        </div>
-                    ))}
-                </div>}
+                    {showOptions &&
+                    <div className="dropdown-menu">
+                        {options.map((option) => (
+                            <div className={ (selected.includes(option))?
+                                "dropdown-menu-item flex column selected"
+                                : "dropdown-menu-item flex column"}
+                                onClick={() => handleSelected(option)}>
+                                {option.value}
+                            </div>
+                        ))}
+                    </div>}
+                </div>
             </div>
         </div>
     );

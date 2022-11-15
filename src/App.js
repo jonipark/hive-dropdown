@@ -21,12 +21,12 @@ function App() {
   return (
       <div className="container">
 
-        <div className="flex justify-center pt-4">Dinner with.. (You can do multiselect)</div>
+        <div className="flex justify-center pt-4">Who are you going to have dinner with? (Multiselect)</div>
         <div className="flex justify-center pt-2">
           <Dropdown options={friendOptions} isMulti={true}/>
         </div>
 
-        <div className="flex justify-center pt-4">Dinner at.. (single)</div>
+        <div className="flex justify-center pt-4">Choose a place to eat</div>
         <div className="flex justify-center pt-2">
           <Dropdown options={restaurantOptions} isMulti={false}/>
         </div>
