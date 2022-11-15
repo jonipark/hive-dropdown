@@ -1,0 +1,32 @@
+
+.dropdown-container {
+    width: 400px;
+    border: 1px solid #ccc;
+    position: relative;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-input {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.dropdown-placeholder {
+    padding: 0.5rem 1rem;
+}
+
+.dropdown-menu {
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+.dropdown-menu-item:hover {
+    background-color: #FFE6EB;
+}
+
+.selected {
+    color: #F38181;
+    font-weight: 600;
+}
